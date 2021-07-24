@@ -1,0 +1,13 @@
+Source: hwclock-sync
+Section: admin
+Priority: optional
+Maintainer: Rohan Agrawal <ra@ubiquityrobotics.com>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.5.0
+
+Package: hwclock-sync
+Architecture: all
+Depends: ${misc:Depends}
+Suggests: fake-hwclock
+Description: Restore system clock from a hardware RTC a smartish way.
+

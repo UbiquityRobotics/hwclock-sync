@@ -1,0 +1,18 @@
+[Unit]
+Description=Synchronise System clock from hardware RTC
+DefaultDependencies=no
+Requires=dev-rtc.device
+After=systemd-modules-load.service dev-rtc.device
+Before=systemd-journald.service fake-hwclock.service time-sync.target sysinit.target shutdown.target
+Conflicts=shutdown.target
+Wants=time-sync.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/hwclock --hctosys --verbose 
+TimeoutSec=15 
+
+[Install]
+WantedBy=sysinit.target
+
